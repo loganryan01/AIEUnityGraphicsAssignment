@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Movement Controls
         float fwd = Input.GetAxis("Vertical");
         float right = Input.GetAxis("Horizontal");
 
@@ -29,11 +30,13 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetFloat("Xpos", right);
         //playerAnimator.SetFloat("SpeedMod", speed);
 
-        if (Input.GetButtonDown("Jump"))
+        // Jump Control
+        if (Input.GetButtonDown("Jump") && IsGrounded == true)
         {
             StartCoroutine(WaitAndJump());
         }
 
+        // Melee Control
         if (Input.GetButtonDown("Fire3"))
         {
             playerAnimator.SetBool("IsPunching", true);
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("IsPunching", false);
         }
 
+        // Aiming Controls
         if (Input.GetMouseButton(1))
         {
             playerAnimator.SetBool("IsAiming", true);
@@ -51,19 +55,26 @@ public class PlayerController : MonoBehaviour
         {
             playerAnimator.SetBool("IsAiming", false);
         }
+
+        // Shooting Controls
+        if (Input.GetMouseButtonDown(0))
+        {
+            playerAnimator.SetBool("IsShooting", true);
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            playerAnimator.SetBool("IsShooting", false);
+        }
     }
 
     private void FixedUpdate()
     {
-        int layerMask = 1 << 8;
         float distance = 2;
 
-        layerMask = ~layerMask;
-        
-        RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), distance) && playerRB.velocity.y < 0)
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * distance, Color.yellow);
+            IsGrounded = true;
             playerAnimator.SetBool("IsGrounded", true);
             playerAnimator.SetBool("IsJumping", false);
         }
@@ -85,6 +96,12 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
 
+        IsGrounded = false;
         playerRB.AddForce(jump, ForceMode.Impulse);
+    }
+
+    public void DoAction(Action action)
+    {
+        Debug.Log("Doing " + action.actionName);
     }
 }
