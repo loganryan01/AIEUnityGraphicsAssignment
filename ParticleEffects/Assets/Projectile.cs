@@ -28,6 +28,9 @@ public class Projectile : MonoBehaviour
         if(action.impactFX)
             action.impactFX.Begin(transform);
 
+        if (other.gameObject.CompareTag("Bush"))
+            other.gameObject.GetComponent<Bush>().enabled = true;
+
         Destroy(gameObject);
     }
 }
