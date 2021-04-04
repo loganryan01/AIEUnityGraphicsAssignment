@@ -10,7 +10,7 @@ Shader "Unlit/GreyScale"
     {
         //Tags { "RenderType"="Background" }
         //LOD 100
-        //ZWrite Off
+        Cull Off ZWrite On ZTest Always
 
         Pass
         {

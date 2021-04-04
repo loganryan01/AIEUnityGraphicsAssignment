@@ -13,9 +13,10 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue" = "Geometry"}
+        Tags { "RenderType"="Opaque" "Queue" = "Overlay+1"}
         //ZWrite On
         //Lighting On
+        //ZTest Always
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
