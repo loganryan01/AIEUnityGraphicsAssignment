@@ -345,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &509776094
 Camera:
   m_ObjectHideFlags: 0
@@ -504,6 +504,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7690983453011451596, guid: 272eca28e33dd6142924a27a7b73ac2d, type: 3}
   m_PrefabInstance: {fileID: 785910011}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &557255708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8075112367652192587, guid: 59146dd0e4acba14f80deb216a1466aa, type: 3}
+  m_PrefabInstance: {fileID: 8075112368148155856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &557255709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557255708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9173151375f26408d34af98fc7c3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchMat: {fileID: 2100000, guid: e1ede5db298b8fc48bed289e2aeaffbf, type: 2}
 --- !u!1 &558995719
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +706,8 @@ MonoBehaviour:
   actions:
   - {fileID: 11400000, guid: c144f820e816dd84f84187767c33e06f, type: 2}
   hullOutline: {fileID: 2100000, guid: a110f682c153b1742b95333960e0ead7, type: 2}
+  activeSwitch: {fileID: 2100000, guid: e1ede5db298b8fc48bed289e2aeaffbf, type: 2}
+  postProcessor: {fileID: 963194230}
 --- !u!4 &577388916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 272eca28e33dd6142924a27a7b73ac2d, type: 3}
@@ -1270,7 +1290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a96f24d772630f04a86cf3444d27abf2, type: 3}
   m_Name: 

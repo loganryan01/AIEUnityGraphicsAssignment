@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     public AnimatedAction[] actions;
     public Material hullOutline;
+    public Material activeSwitch;
+    public PostProcessor postProcessor;
     CharacterFX characterFX;
     GameObject[] switches;
 
@@ -39,6 +41,14 @@ public class PlayerController : MonoBehaviour
             }
             if (action.actionName == "Spirit Sight")
             {
+                
+                foreach (GameObject go in switches)
+                {
+                    // Change return to continue when there is more then one switch
+                    if (go.GetComponent<MeshRenderer>().material == activeSwitch)
+                        return;
+                }
+
                 // Change material for all "switches" to hull outline material for 10 seconds
                 StartCoroutine(SpritSight());
             }
@@ -52,14 +62,32 @@ public class PlayerController : MonoBehaviour
         
         foreach (GameObject go in switches)
         {
+            if (go.GetComponent<MeshRenderer>().material.name == "ActiveSwitch (Instance)")
+            {
+                Debug.Log("Skipped");
+                continue;
+            }
+
+            Debug.Log(go.GetComponent<MeshRenderer>().material);
             go.GetComponent<MeshRenderer>().material = hullOutline;
         }
+
+        postProcessor.enabled = true;
 
         yield return new WaitForSeconds(10);
 
         foreach (GameObject go in switches)
         {
+            if (go.GetComponent<MeshRenderer>().material.name == "ActiveSwitch (Instance)")
+            {
+                Debug.Log("Skipped");
+                continue;
+            }
+
+            Debug.Log(go.GetComponent<MeshRenderer>().material);
             go.GetComponent<MeshRenderer>().material = defaultMat;
         }
+
+        postProcessor.enabled = false;
     }
 }
