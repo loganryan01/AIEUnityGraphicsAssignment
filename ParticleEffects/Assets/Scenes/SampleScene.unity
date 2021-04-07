@@ -750,6 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: c144f820e816dd84f84187767c33e06f, type: 2}
+  - {fileID: 11400000, guid: 24fc5731fb4259840ba70243fb996f15, type: 2}
   hullOutline: {fileID: 2100000, guid: a110f682c153b1742b95333960e0ead7, type: 2}
   activeSwitch: {fileID: 2100000, guid: e1ede5db298b8fc48bed289e2aeaffbf, type: 2}
   postProcessor: {fileID: 963194230}

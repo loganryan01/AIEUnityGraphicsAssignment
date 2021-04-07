@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             }
             if (action.actionName == "Spirit Sight")
             {
-                
+                characterFX.DoAction(actions[1]);
                 foreach (GameObject go in switches)
                 {
                     // Change return to continue when there is more then one switch
