@@ -1,10 +1,20 @@
-﻿using System.Collections;
+﻿/*---------------------------
+    File Name: CharacterFX.cs
+    Purpose: Setup player FX
+    Author: Logan Ryan
+    Modified: 7 April 2021
+-----------------------------
+    Copyright 2021 Logan Ryan
+---------------------------*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterFX : MonoBehaviour
 {
     public AnimatedAction currentAction;
+
+    // Player animator
     public Animator animator;
 
     public enum BodyPart 
@@ -48,6 +58,10 @@ public class CharacterFX : MonoBehaviour
         return transform;
     }
 
+    /// <summary>
+    /// Do the action that the player selects
+    /// </summary>
+    /// <param name="action">Player's action</param>
     public void DoAction(AnimatedAction action) 
     { 
         currentAction = action; 

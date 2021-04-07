@@ -1,4 +1,12 @@
-﻿using System.Collections;
+﻿/*------------------------------------
+    File Name: ProjectileAction.cs
+    Purpose: Control the projectile FX
+    Author: Logan Ryan
+    Modified: 7 April 2021
+--------------------------------------
+    Copyright 2021 Logan Ryan
+------------------------------------*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VisualFXSystem;
@@ -7,14 +15,14 @@ using VisualFXSystem;
 public class ProjectileAction : AnimatedAction
 {
     public Projectile projectilePrefab; 
-    public float projectileSpeed= 10;
+    public float projectileSpeed = 10;
 
     public VisualFX projectileFX; 
     public VisualFX impactFX;
 
     public override void OnActivate(CharacterFX character)
     {
-        // spawn a projctile
+        // Spawn a projectile
         Projectile projectile = Instantiate(projectilePrefab);
         Transform spawnPoint = character.GetBodyPart(activatePart);
         

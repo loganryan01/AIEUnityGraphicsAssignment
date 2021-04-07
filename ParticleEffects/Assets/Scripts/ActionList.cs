@@ -1,4 +1,12 @@
-﻿using System.Collections;
+﻿/*-------------------------------------------------
+    File Name: ActionList.cs
+    Purpose: Get all the actions attached to object
+    Author: Logan Ryan
+    Modified: 7 April 2021
+---------------------------------------------------
+    Copyright 2021 Logan Ryan
+-------------------------------------------------*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
