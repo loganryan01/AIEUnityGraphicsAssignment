@@ -12,7 +12,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     public AnimatedAction[] actions;
     public Material hullOutline;
     public Material activeSwitch;
@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float fwd = Input.GetAxis("Vertical");
-        animator.SetFloat("Forward", Mathf.Abs(fwd));
-        animator.SetFloat("Sense", Mathf.Sign(fwd));
-        animator.SetFloat("Turn", Input.GetAxis("Horizontal"));
+        animator.SetFloat("Forward", Mathf.Abs(fwd), 1f, Time.deltaTime * 10f);
+        animator.SetFloat("Sense", Mathf.Sign(fwd), 1f, Time.deltaTime * 10f);
+        animator.SetFloat("Turn", Input.GetAxis("Horizontal"), 1f, Time.deltaTime * 10f);
     }
 
     /// <summary>
@@ -103,7 +103,6 @@ public class PlayerController : MonoBehaviour
         {
             if (go.GetComponent<MeshRenderer>().material.name == "ActiveSwitch (Instance)")
             {
-                Debug.Log("Skipped");
                 continue;
             }
 
